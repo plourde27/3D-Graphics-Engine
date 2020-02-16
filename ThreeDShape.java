@@ -4,12 +4,25 @@ import javax.swing.*;
 
 public class ThreeDShape {
     ThreeDPoint[] points;
+    Color col;
     
-    public ThreeDShape(ThreeDPoint[] pts) {
-        points = pts;
+    public ThreeDShape() {
+        
     }
     
-    public void drawShape(Graphics g) {
+    public void drawShape(Graphics g, int[][] pts, Color c) {
+        points = new ThreeDPoint[pts.length];
+        for (int i = 0 ; i < pts.length ; i++) {
+            points[i] = new ThreeDPoint(pts[i][0], pts[i][1], pts[i][2]);
+        }
+        col = c;
+        Polygon poly = new Polygon();
         
+        for (int i = 0 ; i < points.length ; i++) {
+           poly.addPoint(points[i].convertTo2D()[0], points[i].convertTo2D()[1]);
+        }
+        
+        g.setColor(col);
+        g.fillPolygon(poly);
     }
 }

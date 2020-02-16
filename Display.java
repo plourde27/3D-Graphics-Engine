@@ -27,13 +27,9 @@ public class Display extends JComponent{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         
-        Polygon poly = new Polygon();
+        ThreeDShape tr = new ThreeDShape();
         
-        poly.addPoint(100, 100);
-        poly.addPoint(500, 300);
-        poly.addPoint(200, 600);
-        poly.addPoint(100, 100);
-        g.setColor(Color.green);
-        g.fillPolygon(poly);
+        tr.drawShape(g, new int[][]{{260, 200, 600}, {260, 400, 600}, {460, 400, 600}, {460, 200, 600}}, new Color(0, 0, 255));
+        
     }
 }
