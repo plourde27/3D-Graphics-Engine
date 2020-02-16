@@ -17,7 +17,7 @@ public class main
         Display screen = new Display(game, mouse, keyboard);
         frame.add(screen);
         
-        frame.setBounds(0,0,720,720);
+        frame.setBounds(0,0,720,750);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         new Thread(game).start();

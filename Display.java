@@ -5,6 +5,7 @@ import java.lang.Math.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.*;
+import java.lang.Math.*;
 
 public class Display extends JComponent{
     Game game;
@@ -29,7 +30,10 @@ public class Display extends JComponent{
         
         ThreeDShape tr = new ThreeDShape();
         
-        tr.drawShape(g, new int[][]{{260, 200, 600}, {260, 400, 600}, {460, 400, 600}, {460, 200, 600}}, new Color(0, 0, 255));
-        
+        for (int i = 0 ; i < 720 ; i += 120) {
+            for (int j = 0 ; j < 720 ; j += 120) {
+                tr.drawShape(g, new int[][]{{i, j, 720}, {i + 120, j, 720}, {i + 120, j + 120, 720}, {i, j + 120, 720}}, new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)));
+            }
+        }
     }
 }

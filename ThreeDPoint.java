@@ -11,8 +11,8 @@ public class ThreeDPoint {
     
     public int[] convertTo2D() {
         int nx, ny;
-        nx = CAMERA_X - ((x - CAMERA_X) * y) / (y - CAMERA_Y);
-        ny = ((y - CAMERA_Y) * (z - CAMERA_Z)) / (z - CAMERA_Z);
+        nx = CAMERA_X - ((x - CAMERA_X) * -CAMERA_Y) / (y - CAMERA_Y);
+        ny = z - ((y) * (z - CAMERA_Z)) / (y - CAMERA_Y);
         System.out.println(nx + " " + ny);
         return new int[]{nx, ny};
     }
