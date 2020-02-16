@@ -26,5 +26,14 @@ public class Display extends JComponent{
     
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        
+        Polygon poly = new Polygon();
+        
+        poly.addPoint(100, 100);
+        poly.addPoint(500, 300);
+        poly.addPoint(200, 600);
+        poly.addPoint(100, 100);
+        g.setColor(Color.green);
+        g.fillPolygon(poly);
     }
 }
