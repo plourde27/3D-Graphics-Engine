@@ -10,10 +10,10 @@ public class ThreeDShape {
         
     }
     
-    public void drawShape(Graphics g, int[][] pts, int tx, int ty, Color c) {
+    public void drawShape(Graphics g, int[][] pts, int tx, int ty, int ang, Color c) {
         points = new ThreeDPoint[pts.length];
         for (int i = 0 ; i < pts.length ; i++) {
-            points[i] = new ThreeDPoint(pts[i][0] - tx, pts[i][1] - ty, pts[i][2]);
+            points[i] = new ThreeDPoint(rot(pts[i][0] - tx, pts[i][1] - ty, ang)[0], rot(pts[i][0] - tx, pts[i][1] - ty, ang)[1], pts[i][2]);
         }
         col = c;
         Polygon poly = new Polygon();
@@ -24,5 +24,15 @@ public class ThreeDShape {
         
         g.setColor(col);
         g.fillPolygon(poly);
+    }
+    
+    public int[] rot(int x, int y, int ang) {
+        double dst = Math.sqrt((x - 300) * (x - 300) + (y + 200) * (y + 200));
+        double oang = Math.atan(((double) (y - (-200))) / (((double) (x - 300)) + 0.01));
+        System.out.println(oang);
+        double nang = oang + ang * (Math.PI / 180);
+        return new int[]{300 + (int) (Math.cos(nang) * dst), -200 + (int) (Math.sin(nang) * dst)};
+    
+   
     }
 }

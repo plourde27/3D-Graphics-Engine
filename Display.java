@@ -14,6 +14,7 @@ public class Display extends JComponent{
     Color[][] prec;
     int tx = 0;
     int ty = 0;
+    int ang = 0;
     final int FAC = 3;
     
     
@@ -47,15 +48,15 @@ public class Display extends JComponent{
             ty -= FAC;
         }
         if (kb.keys[65]) {
-            tx += FAC;
+            ang -= 2;
         }
         if (kb.keys[68]) {
-            tx -= FAC;
+            ang += 2;
         }
         
         for (int i = 0 ; i < 720 ; i += 120) {
             for (int j = 0 ; j < 720 ; j += 120) {
-                tr.drawShape(g, new int[][]{{i, j, 720}, {i + 120, j, 720}, {i + 120, j + 120, 720}, {i, j + 120, 720}}, tx, ty, prec[i/120][j/120]);            
+                tr.drawShape(g, new int[][]{{i, j, 720}, {i + 120, j, 720}, {i + 120, j + 120, 720}, {i, j + 120, 720}}, tx, ty, ang, prec[i/120][j/120]);            
             }
         }
     }
