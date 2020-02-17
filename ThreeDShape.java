@@ -10,10 +10,10 @@ public class ThreeDShape {
         
     }
     
-    public void drawShape(Graphics g, int[][] pts, Color c) {
+    public void drawShape(Graphics g, int[][] pts, int tx, int ty, Color c) {
         points = new ThreeDPoint[pts.length];
         for (int i = 0 ; i < pts.length ; i++) {
-            points[i] = new ThreeDPoint(pts[i][0], pts[i][1], pts[i][2]);
+            points[i] = new ThreeDPoint(pts[i][0] - tx, pts[i][1] - ty, pts[i][2]);
         }
         col = c;
         Polygon poly = new Polygon();
