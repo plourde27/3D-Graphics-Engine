@@ -41,8 +41,11 @@ public class Display extends JComponent{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         
-        double t = scn.nextDouble();
-        System.out.println(Math.atan(t));
+        System.out.println(Math.atan(0.1));
+        System.out.println(Math.atan(0.5));
+        System.out.println(Math.atan(1));
+        System.out.println(Math.atan(2));
+        System.out.println(Math.atan(10));
         
         ThreeDShape tr = new ThreeDShape();
         
@@ -59,8 +62,8 @@ public class Display extends JComponent{
             ang += 2;
         }
         
-        for (int i = 0 ; i < 360 ; i += 120) {
-            for (int j = 240 ; j < 360 ; j += 120) {
+        for (int i = 0 ; i < 720 ; i += 120) {
+            for (int j = 0 ; j < 720 ; j += 120) {
                 tr.drawShape(g, new int[][]{{i, j, 720}, {i + 120, j, 720}, {i + 120, j + 120, 720}, {i, j + 120, 720}}, tx, ty, ang, prec[i/120][j/120]);            
             }
         }
