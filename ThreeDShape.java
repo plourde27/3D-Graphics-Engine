@@ -27,12 +27,13 @@ public class ThreeDShape {
     }
     
     public int[] rot(int x, int y, int ang) {
-        double dst = Math.sqrt((x - 300) * (x - 300) + (y + 200) * (y + 200));
-        double oang = Math.atan(((double) (y - (-200))) / (((double) (x - 300)) + 0.01));
-        System.out.println(oang);
-        double nang = oang + ang * (Math.PI / 180);
-        return new int[]{300 + (int) (Math.cos(nang) * dst), -200 + (int) (Math.sin(nang) * dst)};
-    
+       double dst = Math.sqrt((x - 360) * (x - 360) + (y + 200) * (y + 200));
+       double oang = Math.atan(((double) (y - (-200))) / (((double) (x - 360)) + 0.01));
+       //System.out.println(((double) (y - (-200))) / (((double) (x - 360)) + 0.01));
+       double nang = oang + ang * (Math.PI / 180);
+       return new int[]{360 + (int) (Math.cos(nang) * dst), -200 + (int) (Math.sin(nang) * dst)};
+       
+       //return new int[]{x, y};
    
     }
 }
